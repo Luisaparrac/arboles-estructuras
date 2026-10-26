@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Incident Triage Tree</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600&family=Space+Grotesk:wght@400;500;700&family=Unbounded:wght@500;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="bg"></div>
+
+  <header>
+    <p class="eyebrow">Data Structures · Binary Decision Tree</p>
+    <h1>Incident <span>Triage</span> Tree</h1>
+    <p class="lede">Answer YES or NO and walk from the root to a verdict. Every answer is a step down the tree.</p>
+    <ul class="stats" id="stats"></ul>
+  </header>
+
+  <main>
+    <section class="card stage">
+      <svg id="tree" aria-label="Decision tree"></svg>
+      <ul class="legend" id="legend"></ul>
+    </section>
+
+    <aside>
+      <section class="card" id="question">
+        <p class="step" id="step"></p>
+        <h2 id="qtext"></h2>
+        <div class="actions">
+          <button class="btn yes" id="yes">Yes</button>
+          <button class="btn no" id="no">No</button>
+        </div>
+      </section>
+
+      <section class="card verdict" id="verdict" hidden>
+        <span class="badge" id="badge"></span>
+        <h2 id="action"></h2>
+        <button class="btn ghost" id="restart">Triage another incident</button>
+      </section>
+
+      <section class="card">
+        <h3>Decision path</h3>
+        <ol class="path" id="path"></ol>
+      </section>
+
+      <section class="card">
+        <h3>Traversals</h3>
+        <div class="actions wrap">
+          <button class="btn chip" data-mode="bfs">BFS</button>
+          <button class="btn chip" data-mode="preorder">Pre-order</button>
+          <button class="btn chip" data-mode="postorder">Post-order</button>
+        </div>
+        <p class="readout" id="readout">Pick a traversal to watch it visit every node.</p>
+      </section>
+    </aside>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>
